@@ -1,5 +1,5 @@
 .element__item {
-	max-width: 246px;
+	max-width: 260px;
 	display: flex;
 	justify-content: space-between;
 }
