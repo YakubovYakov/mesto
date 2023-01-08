@@ -1,10 +1,10 @@
 .profile__info {
-	margin-right: 212px;
+  margin-right: 212px;
 }
 
 @media (max-width: 1000px) {
-	.profile__info {
-		margin: 0;
-		margin-top: 22.25px;
-	}
+  .profile__info {
+    margin: 0;
+    margin-top: 22.25px;
+  }
 }

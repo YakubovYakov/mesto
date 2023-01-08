@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>mesto</title>
+	<title>Место</title>
 	<link rel="stylesheet" href="./pages/index.css" />
 </head>
 
@@ -13,70 +13,85 @@
 	<header class="header">
 		<div class="header__logo"></div>
 	</header>
-<main class="main">
-	<section class="profile">
+	<main class="main">
+		<section class="profile">
 			<div class="profile__content-avatar">
 				<img src="./images/avatar.png" alt="Аватар профиля" class="profile__avatar">
 			</div>
 			<div class="profile__info">
 				<div class="profile__container">
-				<h1 class="profile__name">Жак-Ив Кусто</h1>
-				<button class="profile__edit-button"></button>
+					<h1 class="profile__name">Жак-Ив Кусто</h1>
+					<button class="profile__edit-button"></button>
+				</div>
+				<p class="profile__subtitle">Исследователь океана</p>
 			</div>
-				<p class="profile__caption">Исследователь океана</p>
+			<button class="profile__add-button">
+				<img class="profile__plus" src="./images/plus.svg">
+			</button>
+		</section>
+		<section class="elements">
+			<div class="element">
+				<img class="element__image" src="./images/photo-grid-baikal.jpg" alt="Байкал">
+				<div class="element__item">
+					<h2 class="element__name">Байкал</h2>
+					<button class="element__like"></button>
+				</div>
 			</div>
-				<button class="profile__add-button">
-					<img class="profile__plus" src="./images/plus.svg">
-				</button>
-	</section>
-	<section class="elements">
-		<div class="element">
-			<img class="element__image" src="./images/photo-grid-baikal.jpg" alt="Байкал">
-		<div class="element__item">
-			<h2 class="element__name">Байкал</h2>
-			<button class="element__like"></button>
-		</div>
-		</div>
-		<div class="element">
-			<img class="element__image" src="./images/photo-grid-elbrus.jpg" alt="Эльбрус">
-		<div class="element__item">
-			<h2 class="element__name">Эльбрус</h2>
-			<button class="element__like"></button>
-		</div>	
-		</div>
-	 <div class="element">
-		<img class="element__image" src="./images/photo-grid-kamchatka-1.jpg" alt="Камчатка">
-		<div class="element__item">
-			<h2 class="element__name">Камчатка</h2>
-			<button class="element__like"></button>
-		</div>
-	  </div>
-   <div class="element">
-		<img class="element__image" src="./images/photo-grid-sochi.jpg" alt="Сочи">
-		<div class="element__item">
-		 <h2 class="element__name">Сочи</h2>
-		 <button class="element__like"></button>
-		</div>
-	 </div>	
-	 <div class="element">
-		<img class="element__image" src="./images/place-altai.jpg" alt="Алтай">
-		<div class="element__item">
-			<h2 class="element__name">Алтай</h2>
-			<button class="element__like"></button>
-		</div>
-	 </div>
-	 <div class="element">
-		<img class="element__image" src="./images/place-karelia.jpg" alt="Карелия">
-	 <div class="element__item">
-		<h2 class="element__name">Карелия</h2>
-		<button class="element__like"></button>
-	 </div>
-	 </div>
-</section>
-</main>
+			<div class="element">
+				<img class="element__image" src="./images/photo-grid-elbrus.jpg" alt="Эльбрус">
+				<div class="element__item">
+					<h2 class="element__name">Эльбрус</h2>
+					<button class="element__like"></button>
+				</div>
+			</div>
+			<div class="element">
+				<img class="element__image" src="./images/photo-grid-kamchatka-1.jpg" alt="Камчатка">
+				<div class="element__item">
+					<h2 class="element__name">Камчатка</h2>
+					<button class="element__like"></button>
+				</div>
+			</div>
+			<div class="element">
+				<img class="element__image" src="./images/photo-grid-sochi.jpg" alt="Сочи">
+				<div class="element__item">
+					<h2 class="element__name">Сочи</h2>
+					<button class="element__like"></button>
+				</div>
+			</div>
+			<div class="element">
+				<img class="element__image" src="./images/place-altai.jpg" alt="Алтай">
+				<div class="element__item">
+					<h2 class="element__name">Алтай</h2>
+					<button class="element__like"></button>
+				</div>
+			</div>
+			<div class="element">
+				<img class="element__image" src="./images/place-karelia.jpg" alt="Карелия">
+				<div class="element__item">
+					<h2 class="element__name">Карелия</h2>
+					<button class="element__like"></button>
+				</div>
+			</div>
+		</section>
+	</main>
 	<footer class="footer">
 		<p class="footer__copyright">&#169; 2022 Mesto Russia</p>
 	</footer>
+
+	<div class="popup popup__profile-edit">
+		<div class="popup__container popup__overlay">
+			<button class="popup__close-button"></button>
+			<form class="popup__form">
+				<h2 class="popup__title">Редактировать профиль</h2>
+				<input type="text" class="popup__input popup__edit-name" placeholder="Ваше имя">
+				<span class="popup__border"></span>
+				<input type="text" class="popup__input popup__edit-about" placeholder="Деятельность">
+				<span class="popup__border"></span>
+				<button type="submit" class="popup__button">Сохранить</button>
+			</form>
+		</div>
+	</div>
 </body>
+<script src="./scripts/index.js"></script>
 
 </html>
