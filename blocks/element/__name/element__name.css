@@ -9,6 +9,7 @@
  margin-bottom: 21px;
  margin-left: 21px;
  text-overflow: ellipsis;
+ max-width: 246px;
  white-space: nowrap;
  overflow: hidden;
 }

@@ -6,9 +6,11 @@
   border: 2px solid #FFFFFF;
   background-repeat: no-repeat;
   background-color: transparent;
+	border-radius: 2px;
   padding: 0;
   transition: 0.5s;
   opacity: 1;
+	cursor: pointer;
 }
 
 .profile__add-button:hover {
