@@ -20,6 +20,5 @@
 @media (max-width: 1000px) {
   .profile__add-button {
     width: 282px;
-    border-radius: 2px;
   }
 }
