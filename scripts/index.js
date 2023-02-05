@@ -55,7 +55,7 @@ function createCard (data) {
 	const cardDeleteBtn = card.querySelector('.element__delete');
 	const cardImg = card.querySelector('img'); 
 	cardImg.addEventListener('click', ()=> {
-		popupCardImage.classList.remove('hidden');
+		popupCardImage.classList.remove('popup_opened');
 		popupCardImageUrl.src = data.link
 		popupCardImageUrl.alt = data.name
 		popupCardImageTitle.textContent = data.name
@@ -116,11 +116,11 @@ popupCloseButton.forEach((button) => {
 
 //функция открытия мод окна
 function openPopup(popup) {
-  popup.classList.remove('hidden');
+  popup.classList.remove('popup_opened');
 }
 //функция закрытия мод окна
 function closePopup(popup) {
- popup.classList.add('hidden');
+ popup.classList.add('popup_opened');
 }
 
 
