@@ -1,5 +1,5 @@
 .popup__container {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   padding-left: 35px;
