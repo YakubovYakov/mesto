@@ -5,6 +5,7 @@
 	position: absolute;
 	color: #FF0000;
 	box-sizing: border-box;
+	display: block;
 }
  
 
