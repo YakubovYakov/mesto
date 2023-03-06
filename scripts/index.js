@@ -86,15 +86,14 @@ initialCards.forEach((card) => {
 });
 
 // чистим форму
-forms.forEach((form) => {
-  form.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-  });
-});
+// forms.forEach((form) => {
+//   form.addEventListener("submit", (evt) => {
+//     evt.preventDefault();
+//   });
+// });
 
-function clearForm(form) {
-  form.reset();
-}
+
+
 
 popupCloseButtons.forEach((button) => {
   const popup = button.closest(".popup");
@@ -106,33 +105,33 @@ popupCloseButtons.forEach((button) => {
 //функция открытия мод окна
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+	document.addEventListener("keydown", closeByEsc);
 }
 //функция закрытия мод окна
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+	document.removeEventListener("keydown", closeByEsc);
 }
 
 const closePopupByClickOnOverlay = (event) => {
   if (event.target != event.currentTarget) {
     return;
   }
-  closePopup(document.querySelector(".popup_opened"));
+  closePopup(event.currentTarget);
 };
 
 popupEditProfile.addEventListener("click", closePopupByClickOnOverlay);
 cardPopup.addEventListener("click", closePopupByClickOnOverlay);
 popupCardImage.addEventListener("click", closePopupByClickOnOverlay);
-//
-function closeByEsc(event) {
-  const popupList = document.querySelectorAll(".popup");
-  popupList.forEach((item) => {
-    if (event.key === "Escape") {
-      closePopup(item);
-    }
-  });
-}
 
-document.addEventListener("keydown", closeByEsc);
+function closeByEsc(event) {
+  const openedPopup = document.querySelector(".popup_opened");
+    
+    if (event.key === "Escape") {
+      closePopup(openedPopup);
+    }
+};
+
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -152,6 +151,7 @@ function handleCardFormSubmit(evt) {
   closePopup(cardPopup);
 
   clearForm(popupCardForm);
+	
 }
 
 popupCardForm.addEventListener("submit", handleCardFormSubmit);

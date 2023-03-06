@@ -6,6 +6,10 @@ const formValidationConfig = {
   buttonDisabledClass: "popup__button_disabled",
 };
 
+function clearForm(form) {
+  form.reset();
+}
+
 function disableSubmit(event) {
   event.preventDefault();
 }
@@ -14,14 +18,25 @@ function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.popupInfo));
 
   formList.forEach((form) => {
-    form.addEventListener("submit", disableSubmit);
-    form.addEventListener("input", () => {
-      toggleButton(form, config);
-    });
+    form.addEventListener("submit", (event)=> {
+			disableSubmit(event)
+			clearForm(form)
+			toggleButton(form, config)
+		}  );
+    // form.addEventListener("input", () => {
+    //   toggleButton(form, config);
+    // });
 
     addInputListeners(form, config);
     toggleButton(form, config);
   });
+}
+function addInputError(input, config) {
+	input.classList.add(config.errorClass);
+}
+
+function removeInputErorr(input, config) {
+	input.classList.remove(config.errorClass);
 }
 
 function handleFormInput(event, config) {
@@ -30,10 +45,10 @@ function handleFormInput(event, config) {
   const errorElement = document.querySelector(`#${inputId}-error`);
 
   if (input.validity.valid) {
-    input.classList.remove(config.errorClass);
+    removeInputErorr(input, config)
     errorElement.textContent = "";
   } else {
-    input.classList.add(config.errorClass);
+    addInputError(input, config)
     errorElement.textContent = input.validationMessage;
   }
 }
@@ -52,8 +67,10 @@ function addInputListeners(form, config) {
   inputList.forEach(function (item) {
     item.addEventListener("input", (event) => {
       handleFormInput(event, config);
+			toggleButton(form, config);
     });
   });
 }
 
 enableValidation(formValidationConfig);
+
