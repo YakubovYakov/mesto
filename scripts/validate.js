@@ -3,7 +3,7 @@ const formValidationConfig = {
   inputSelector: ".popup__input",
   errorClass: "popup__input_type_error",
   buttonSelector: ".popup__button",
-  buttonDisabledClass: "popup__button_disabled",
+  buttonDisabledClass: "popup__button_disabled"
 };
 
 function clearForm(form) {
