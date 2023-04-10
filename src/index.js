@@ -8,7 +8,7 @@ import UserInfo from "../src/components/UserInfo.js";
 import {initialCards, formValidationConfig, profileOpenButton, popupOpenLinkButton, editForm, addForm, popupName, popupProffesion, popupCardTitleInput, popupCardLinkInput} from './utils/constants.js';
 import './pages/index.css';
 
-const popupCardImage = document.querySelector('#view-photo');
+//const popupCardImage = document.querySelector('#view-photo');
 
 
 const validatorEditForm = new FormValidator(formValidationConfig, editForm);
@@ -38,8 +38,6 @@ const popupAddPlace = new PopupWithForm('.popup_add_card', {
 	 //debugger
 		const newCard = new Card({data: {name, link}, handleCardClick: () => {
 			popupImage.open(name, link);
-			validatorAddForm._toggleButton();
-			validatorAddForm.resetValidation();
 		}}, '#element-template', () => {
 			popupImage.open(name, link);
 		}
@@ -54,17 +52,19 @@ popupAddPlace.setEventListeners();
 //открытие попапа big image
 const popupImage = new PopupWithImage(
 	'.popup_card_image', 
-)
-popupImage.setEventListeners();
-
-document.querySelectorAll('.element__image').forEach(cardImage => {
-	cardImage.addEventListener('click', (evt) => {
-		popupImage.open(evt.target.alt, evt.target.src);
-	})
-});
-
-popupOpenLinkButton.addEventListener('click', ()=> {
-	popupAddPlace.open();
+	)
+	popupImage.setEventListeners();
+	
+	document.querySelectorAll('.element__image').forEach(cardImage => {
+		cardImage.addEventListener('click', (evt) => {
+			popupImage.open(evt.target.alt, evt.target.src);
+		})
+	});
+	
+	popupOpenLinkButton.addEventListener('click', ()=> {
+		popupAddPlace.open();
+		validatorAddForm.resetValidation();
+		validatorAddForm._toggleButton();
 })
 
 const userInfo = new UserInfo({
@@ -84,7 +84,8 @@ function openPopupEditProfile() {
 	formPopupProfileEdit.open();
 	popupName.value = userInfo.getUserInfo().name;
 	popupProffesion.value = userInfo.getUserInfo().job;
-
+	validatorEditForm.resetValidation();
+	validatorEditForm._toggleButton();
 }
 profileOpenButton.addEventListener('click', openPopupEditProfile);
 //
