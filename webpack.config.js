@@ -6,12 +6,12 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: '[name].[contenthash].js',
-    path: path.join(__dirname, "build"),
+    path: path.join(__dirname, "dist"),
     clean: true,
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, "build"),
+      directory: path.join(__dirname, "./dist"),
     },
     compress: true,
     port: 8080,
