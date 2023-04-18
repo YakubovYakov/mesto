@@ -9,7 +9,7 @@ import Api from "../src/components/Api.js";
 
 import {
   initialCards,
-  formValidationConfig,
+  //formValidationConfig,
   profileOpenButton,
   popupOpenButton,
   editForm,
