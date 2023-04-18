@@ -5,6 +5,8 @@ import Popup from "../src/components/Popup.js";
 import { PopupWithImage } from "../src/components/PopupWithImage.js";
 import PopupWithForm from "../src/components/PopupWithForm.js";
 import UserInfo from "../src/components/UserInfo.js";
+import Api from "../src/components/Api.js";
+
 import {
   initialCards,
   formValidationConfig,
@@ -19,11 +21,18 @@ import {
 } from "./utils/constants.js";
 import "./pages/index.css";
 import { data } from "autoprefixer";
+import { config } from "webpack";
 
 const validatorEditForm = new FormValidator(formValidationConfig, editForm);
 const validatorAddForm = new FormValidator(formValidationConfig, addForm);
 validatorEditForm.enableValidation();
 validatorAddForm.enableValidation();
+
+// ----------- Создание экземпляра API для получения карточек
+// const api = new Api ("'https://mesto.nomoreparties.co/v1/cohort-64", {
+// 	authorization: "2ceb7c58-7c31-4d20-a44d-d2bf37d02e88",
+// 	"Content-Type": "application/json"
+// });
 
 // ----------- Создание карточки
 function createCard(cardData) {
