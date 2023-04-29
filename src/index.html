@@ -15,32 +15,39 @@
 	</header>
 	<main class="main">
 		<section class="profile">
-			<img src="<%=require('./images/plus.svg')%>" alt="Аватар профиля" class="profile__avatar">
-			<div class="profile__info">
-				<div class="profile__container">
-					<h1 class="profile__name">Жак-Ив Кусто</h1>
-					<button type="button" aria-label="Edit Profile" class="profile__edit-button"></button>
+			 <div class="profile__person">
+				<button type="submit" class="profile__overlay">
+					<img src="" alt="" class="profile__avatar">
+				</button>
+				<div class="profile__info">
+					<div class="profile__container">
+						<h1 class="profile__name"></h1>
+						<button type="button" aria-label="Edit Profile" class="profile__edit-button"></button>
+					</div>
+					<p class="profile__subtitle"></p>
 				</div>
-				<p class="profile__subtitle">Исследователь океана</p>
 			</div>
 			<button type="button" class="profile__add-button">
-				<img class="profile__plus" src="<%=require('./images/plus.svg')%>" alt="Аватар">
+				<img class="profile__plus" src="<%=require('./images/plus.svg')%>">
 			</button>
 		</section>
 		<section class="elements">
 			<ul class="elements-list"></ul>
-		</section>   
+		</section>
 	</main>
 	<footer class="footer">
 		<p class="footer__copyright">&#169; 2022 Mesto Russia</p>
 	</footer>
-
+	<!--Template-->
 	<template id="element-template">
 		<article class="element">
 			<img src="#" alt="_" class="element__image">
 			<div class="element__item">
 				<h2 class="element__name"></h2>
+			<div class="element__likes-container">
 				<button type="button" aria-label="Лайк" class="element__like"></button>
+				<span class="element__like-counter"></span>
+			</div>
 			</div>
 			<button class="element__delete element__delete_action" title="Delete"></button>
 		</article>
@@ -52,22 +59,12 @@
 			<h2 class="popup__title">Редактировать профиль</h2>
 			<form name="edit-profile" class="popup__form popup__edit-form" novalidate>
 				<div class="popup__input-container">
-					<input required 
-					id="input-user-name" 
-					type="text" 
-					class="popup__input popup__input_edit_name" 
-					name="name"
-						placeholder="Ваше имя"
-						 minlength="2" 
-						 maxlength="40">
+					<input required id="input-user-name" type="text" class="popup__input popup__input_edit_name" name="name"
+						placeholder="Ваше имя" minlength="2" maxlength="40">
 					<span id="input-user-name-error" class="popup__error popup__error-type-name"></span>
 				</div>
 				<div class="popup__input-container">
-					<input required 
-					id="input-edit-about" 
-					type="text" 
-					class="popup__input popup__input_edit_about" 
-					name="job"
+					<input required id="input-edit-about" type="text" class="popup__input popup__input_edit_about" name="job"
 						placeholder="Деятельность" minlength="2" maxlength="200">
 					<span id="input-edit-about-error" class="popup__error popup__error-type-description"></span>
 				</div>
@@ -87,11 +84,8 @@
 					<span id="input-name-card-error" class="popup__error"></span>
 				</div>
 				<div class="popup__input-container">
-					<input required id="input-link" 
-								 type="url" 
-								 class="popup__input popup__input_add_link" 
-								 name="link"
-								 placeholder="Ссылка на картинку">
+					<input required id="input-link" type="url" class="popup__input popup__input_add_link" name="link"
+						placeholder="Ссылка на картинку">
 					<span id="input-link-error" class="popup__error"></span>
 				</div>
 				<button type="submit" class="popup__button popup__create-btn">Создать</button>
@@ -108,7 +102,37 @@
 			</figure>
 		</div>
 	</div>
-	<!-- <script defer type="module" src="./scripts/index.js"></script> -->
+	<!-- Pop-up предупреждения об удалении картинки -->
+	<div class="popup popup_type_delete" id="delete-photo">
+		<div class="popup__container popup__delete-container">
+			<button type="button" aria-label="Close" class="popup__close-button"></button>
+			<h2 class="popup__title popup__title_delete">Вы уверены?</h2>
+			<form class="popup__form popup__delete-form" novalidate>
+				<button type="submit" class="popup__button">Да</button>
+			</form>
+		</div>
+	</div>
+	<!-- Pop-up смены аватара -->
+ <div class="popup popup_change_avatar">
+	<div class="popup__container popup__container_change_avatar">
+		<h2 class="popup__title">Обновить аватар</h2>
+		<form class="popup__form popup_change_avatar_form" novalidate>
+			<input id="change-avatar"
+						 type="url" 
+						 placeholder="Ссылка на аватар" 
+						 class="popup__input popup_change_avatar_link"
+						 name="link"
+						 required>
+			<span id="change-avatar-error" class="popup__error"></span>
+			<button type="submit" class="popup__button">Сохранить</button>
+		</form>
+		<button type="button" aria-label="Close" class="popup__close-button"></button>
+	</div>
+ </div>
+ 
+	
+
+	<!-- <script defer type="module" src="./src/index.js"></script> -->
 </body>
 
 

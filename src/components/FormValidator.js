@@ -22,6 +22,7 @@ export default class FormValidator {
     input.classList.remove(this._errorClass);
     const errorElement = document.querySelector(`#${input.id}-error`);
     errorElement.textContent = "";
+
   }
 
   enableValidation() {

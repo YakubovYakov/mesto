@@ -1,3 +1,7 @@
+/**
+ * Класс, который отвечает за открытие и закрытие попапа
+ */
+
 export default class Popup {
   constructor(popupSelector) {
     this._popupSelector = document.querySelector(popupSelector);
@@ -21,6 +25,8 @@ export default class Popup {
       this.close();
     }
   };
+	// -------- Метод,который добавляет слушатель клика иконке закрытия попапа.
+	// -------- Модальное окно также закрывается при клике на оверлей
 
   setEventListeners() {
     this._buttonClose.addEventListener("click", () => {
