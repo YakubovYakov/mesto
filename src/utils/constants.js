@@ -41,7 +41,7 @@ const profileOvarlay = document.querySelector(".profile__overlay");
 const popupName = document.querySelector(".popup__input_edit_name");
 const popupProffesion = document.querySelector(".popup__input_edit_about");
 
-const popupChangeAvatar = document.querySelector(".popup__change_avatar-form");
+const popupChangeAvatar = document.querySelector(".popup__avatar-form");
 const editForm = document.querySelector(".popup__edit-form");
 const addForm = document.querySelector(".popup__add-form");
 

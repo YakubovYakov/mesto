@@ -92,7 +92,7 @@ function handleCardImage(title, link) {
 
 // ---------- Отрисовка карточки
 function renderCard(cardData) {
-  const newCard = createCard(cardData); 
+  const newCard = createCard(cardData); // Создаем карточку и передаем туда данные {title, input}
   cardList.addItem(newCard); // В элемент списка добавляем готовую карточку
 }
 
